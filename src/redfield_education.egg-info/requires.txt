@@ -1,0 +1,11 @@
+qutip>=5.0.0
+numpy
+scipy
+matplotlib
+tqdm
+
+[dev]
+pytest
+jupyter
+black
+ruff

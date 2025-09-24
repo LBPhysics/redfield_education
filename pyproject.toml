@@ -1,17 +1,18 @@
 [project]
 name = "redfield-education"
-version = "0.1.0"
+version = "1.0"
 description = "Educational Bloch-Redfield equation examples with QuTiP"
+keywords = ["quantum", "physics", "simulation", "Redfield", "Open Quantum Systems", "OQS"]
+
 readme = "README.md"
-authors = [{name = "Your Name"}]
-license = {text = "MIT"}
 requires-python = ">=3.10"
+
+authors = [{name = "Leopold Bodamer", email = "leopold.bodamer@student.uni-tuebingen.de"}]
+
 dependencies = [
   "qutip>=5.0.0",
   "numpy",
-  "scipy",
   "matplotlib",
-  "tqdm"
 ]
 
 [project.optional-dependencies]
@@ -20,3 +21,9 @@ dev = ["pytest", "jupyter", "black", "ruff"]
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"

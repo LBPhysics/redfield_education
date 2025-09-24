@@ -1,0 +1,21 @@
+name: redfield
+channels:
+  - conda-forge
+
+dependencies:
+  # Core Python
+  - python>=3.10
+
+  # Essential scientific computing
+  - numpy
+  - scipy
+  - matplotlib
+
+  # Quantum computing
+  - qutip>=5.0.0
+
+  # Interactive notebooks
+  - jupyter
+  
+  # Development tools (optional)
+  - pytest
