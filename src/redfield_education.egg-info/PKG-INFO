@@ -1,16 +1,14 @@
 Metadata-Version: 2.4
 Name: redfield-education
-Version: 0.1.0
+Version: 1.0
 Summary: Educational Bloch-Redfield equation examples with QuTiP
-Author: Your Name
-License: MIT
+Author-email: Leopold Bodamer <leopold.bodamer@student.uni-tuebingen.de>
+Keywords: quantum,physics,simulation,Redfield,Open Quantum Systems,OQS
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
 Requires-Dist: qutip>=5.0.0
 Requires-Dist: numpy
-Requires-Dist: scipy
 Requires-Dist: matplotlib
-Requires-Dist: tqdm
 Provides-Extra: dev
 Requires-Dist: pytest; extra == "dev"
 Requires-Dist: jupyter; extra == "dev"
