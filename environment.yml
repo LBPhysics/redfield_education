@@ -20,6 +20,7 @@ dependencies:
 
   # Quantum computing
   - qutip>=5.0.0
+  - mpmath
 
   # Interactive notebooks
   - jupyter

@@ -32,6 +32,19 @@ def populations_from_states(states):
     return pops
 
 
+def coherences_from_states(states):
+    """Return coherences array shape (n_coherences, n_times)."""
+    dim = states[0].shape[0]
+    n_coherences = dim * (dim - 1) // 2
+    cohs = np.empty((n_coherences, len(states)))
+    idx = 0
+    for i in range(dim):
+        for j in range(i + 1, dim):
+            cohs[idx] = [np.abs(rho[i, j]) for rho in states]
+            idx += 1
+    return cohs
+
+
 def plot_populations(times, states, labels=None, ax=None):
     if ax is None:
         _, ax = plt.subplots(figsize=(6, 4))
@@ -39,10 +52,32 @@ def plot_populations(times, states, labels=None, ax=None):
     for i, p in enumerate(pops):
         if np.allclose(p, 0):
             continue
-        lab = labels[i] if labels else rf"$p_{{{i}}}$"
-        ax.plot(times, p, color=PALETTE[i % len(PALETTE)], label=lab)
+        lab = labels[i] if labels and i < len(labels) else rf"$p_{{{i}}}$"
+        color_index = (len(ax.lines) + i) % len(PALETTE)
+        ax.plot(times, p, color=PALETTE[color_index], label=lab)
     ax.set_xlabel(r"Time $t$")
     ax.set_ylabel(r"Population")
+    ax.legend(frameon=False, ncol=2)
+    return ax
+
+
+def plot_coherences(times, states, labels=None, ax=None):
+    if ax is None:
+        _, ax = plt.subplots(figsize=(6, 4))
+    cohs = coherences_from_states(states)
+    dim = states[0].shape[0]
+    if labels is None:
+        labels = [
+            rf"$|\rho_{{{i}{j}}}|$" for i in range(dim) for j in range(i + 1, dim)
+        ]
+    for i, c in enumerate(cohs):
+        if np.allclose(c, 0):
+            continue
+        lab = labels[i] if i < len(labels) else rf"$c_{{{i}}}$"
+        color_index = (len(ax.lines) + i) % len(PALETTE)
+        ax.plot(times, c, color=PALETTE[color_index], label=lab)
+    ax.set_xlabel(r"Time $t$")
+    ax.set_ylabel(r"Coherence $|\rho_{ij}|$")
     ax.legend(frameon=False, ncol=2)
     return ax
 
