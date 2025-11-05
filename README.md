@@ -1,15 +1,15 @@
 # Bloch-Redfield Educational Repository
 
-This mini-project provides pedagogical Jupyter notebooks illustrating the Bloch-Redfield (BR) master equation using QuTiP's `brmesolve` and comparisons to Lindblad (`mesolve`) where appropriate.
+This mini-project provides pedagogical Jupyter notebooks illustrating the Bloch-Redfield (redfield) master equation using QuTiP's `brmesolve` and comparisons to Lindblad (`mesolve`) where appropriate.
 
 ## Goals
 - Show simple canonical open quantum system examples.
-- Visualize dynamical maps and identify when BR breaks CP (negative density matrix eigenvalues).
+- Visualize dynamical maps and identify when redfield breaks CP (negative density matrix eigenvalues).
 - Demonstrate the secular approximation: Redfield vs Secular Redfield vs Lindblad.
 - Explore multiple bath spectral densities (`DrudeLorentzEnvironment`, `OhmicEnvironment`, `UnderDampedEnvironment`).
 
 ## Notebooks
-1. `01_qubit_dephasing.ipynb`: Pure dephasing qubit: analytical vs BR vs Lindblad.
+1. `01_qubit_dephasing.ipynb`: Pure dephasing qubit: analytical vs redfield vs Lindblad.
 2. `02_qubit_relaxation_drude_lorentz.ipynb`: Energy relaxation & temperature dependence.
 3. `03_harmonic_oscillator_ohmic.ipynb`: Damped quantum oscillator & approach to thermal state.
 4. `04_coupled_qubits_secular_breakdown.ipynb`: Breakdown of secular approximation when splittings comparable to rates.
