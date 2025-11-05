@@ -276,10 +276,6 @@ def plot_bloch_trajectories(
     return fig, ax
 
 
-import numpy as np
-import qutip as qt
-
-
 def is_psd_dm(rho: qt.Qobj, tol=1e-12):
     """
     Return True iff rho is (numerically) a valid density matrix and PSD.
